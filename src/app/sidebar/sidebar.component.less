@@ -22,10 +22,37 @@
     flex-grow: 1;
   }
   &__footer {
-    height: 60px;
+    height: 70px;
   }
 }
 
 .app-logo {
   font-size: 39px;
+}
+
+.menu-item {
+  height: 70px;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+
+  &:hover {
+    background: #525e69;
+  }
+
+  &__icon {
+    font-size: 32px;
+    &--list {
+      font-size: 40px;
+    }
+    &--bookmark {
+      font-size: 35px;
+    }
+    &--history {
+      font-size: 25px;
+    }
+  }
 }
