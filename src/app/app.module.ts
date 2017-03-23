@@ -8,12 +8,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 
 import {SharedModule} from './shared/shared.module';
+import { HeaderComponent } from './header/header.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ContentComponent
+    ContentComponent,
+    HeaderComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,
