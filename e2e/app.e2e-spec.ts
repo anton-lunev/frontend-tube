@@ -7,8 +7,8 @@ describe('frontend-tube App', () => {
     page = new FrontendTubePage();
   });
 
-  it('should display message saying app works', () => {
+  it('should render icons sprite', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getIconsSprite()).toBeDefined();
   });
 });

@@ -1,12 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {ContentComponent} from './content/content.component';
+import {HeaderComponent} from './header/header.component';
+import {UserMenuComponent} from './user-menu/user-menu.component';
+import {SharedModule} from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent,
+        ContentComponent,
+        HeaderComponent,
+        UserMenuComponent
+      ],
+      imports: [
+        SharedModule
       ],
     }).compileComponents();
   }));
@@ -17,16 +29,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
+  it('should render icons sprite', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(compiled.querySelector('app-icons-sprite')).toBeDefined();
   }));
 });
