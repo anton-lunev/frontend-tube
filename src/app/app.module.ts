@@ -5,27 +5,32 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ContentComponent } from './content/content.component';
 
-import {SharedModule} from './shared/shared.module';
-import { HeaderComponent } from './header/header.component';
-import { UserMenuComponent } from './user-menu/user-menu.component';
+import { SharedModule } from './shared/shared.module';
+import { CatalogComponent } from './catalog/catalog.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { HistoryComponent } from './history/history.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ContentComponent,
-    HeaderComponent,
-    UserMenuComponent
+    CatalogComponent,
+    BookmarksComponent,
+    HistoryComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

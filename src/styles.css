@@ -4,3 +4,12 @@ html, body {
   padding: 0;
   height: 100%;
 }
+
+.stretch-content {
+  display: flex;
+}
+
+.stretch-content > *:not(router-outlet) {
+  width: 100%;
+  height: 100%;
+}
