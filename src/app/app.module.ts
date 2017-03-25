@@ -7,17 +7,16 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { SharedModule } from './shared/shared.module';
-import { CatalogComponent } from './catalog/catalog.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { HistoryComponent } from './history/history.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CatalogModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    CatalogComponent,
     BookmarksComponent,
     HistoryComponent,
     SettingsComponent
@@ -27,7 +26,8 @@ import { SettingsComponent } from './settings/settings.component';
     FormsModule,
     HttpModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CatalogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

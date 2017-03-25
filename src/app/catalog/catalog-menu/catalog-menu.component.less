@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  height: 100%;
+}
+
+.c-menu {
+  display: flex;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 3px;
+      width: 0;
+      background: #ed7165;
+      transition-duration: .4s;
+    }
+    &:hover:after {
+      left: 0;
+    }
+    &--active:after, &:hover:after {
+      width: 100%;
+    }
+  }
+}
