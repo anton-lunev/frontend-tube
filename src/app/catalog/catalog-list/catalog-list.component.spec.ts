@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LanguagesListComponent } from './languages-list.component';
+import { CatalogListComponent } from './catalog-list.component';
 
-xdescribe('LanguagesListComponent', () => {
-  let component: LanguagesListComponent;
-  let fixture: ComponentFixture<LanguagesListComponent>;
+describe('CatalogListComponent', () => {
+  let component: CatalogListComponent;
+  let fixture: ComponentFixture<CatalogListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LanguagesListComponent ]
+      declarations: [ CatalogListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LanguagesListComponent);
+    fixture = TestBed.createComponent(CatalogListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

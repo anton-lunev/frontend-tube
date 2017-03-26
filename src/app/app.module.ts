@@ -12,6 +12,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { HistoryComponent } from './history/history.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CatalogModule } from './catalog/catalog.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CatalogModule } from './catalog/catalog.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    CoreModule,
     SharedModule,
     AppRoutingModule,
     CatalogModule

@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LanguagesListComponent } from './languages-list/languages-list.component';
-import { FrameworksListComponent } from './frameworks-list/frameworks-list.component';
 import { CatalogComponent } from './catalog.component';
+import { CatalogListComponent } from './catalog-list/catalog-list.component';
+import { ChannelsListComponent } from './channels-list/channels-list.component';
+import { catalogTypes } from './catalog-list/catalog-list-types';
 
 const routes: Routes = [
   {
     path: '',
     component: CatalogComponent,
     children: [
-      {path: 'languages', component: LanguagesListComponent},
-      {path: 'frameworks', component: FrameworksListComponent},
+      {path: '', redirectTo: 'languages', pathMatch: 'full'},
+      {path: 'languages', component: CatalogListComponent, data: {type: catalogTypes.LANGUAGES}},
+      {path: 'frameworks', component: CatalogListComponent, data: {type: catalogTypes.FRAMEWORKS}},
+      {path: 'libraries', component: CatalogListComponent, data: {type: catalogTypes.LIBRARIES}},
+      {path: 'tools', component: CatalogListComponent, data: {type: catalogTypes.TOOLS}},
+      {path: 'channels', component: ChannelsListComponent},
     ]
   }
 ];

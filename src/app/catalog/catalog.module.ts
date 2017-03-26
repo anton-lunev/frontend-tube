@@ -4,8 +4,8 @@ import { CatalogComponent } from './catalog.component';
 import { SharedModule } from '../shared/shared.module';
 import { CatalogMenuComponent } from './catalog-menu/catalog-menu.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
-import { LanguagesListComponent } from './languages-list/languages-list.component';
-import { FrameworksListComponent } from './frameworks-list/frameworks-list.component';
+import { CatalogListComponent } from './catalog-list/catalog-list.component';
+import { ChannelsListComponent } from './channels-list/channels-list.component';
 
 @NgModule({
   imports: [
@@ -16,8 +16,8 @@ import { FrameworksListComponent } from './frameworks-list/frameworks-list.compo
   declarations: [
     CatalogComponent,
     CatalogMenuComponent,
-    LanguagesListComponent,
-    FrameworksListComponent
+    CatalogListComponent,
+    ChannelsListComponent
   ],
   exports: [
     CatalogComponent

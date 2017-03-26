@@ -1,0 +1,43 @@
+{
+  "languages": [
+    {
+      "name": "javascript",
+      "logo": "javascript.svg"
+    },
+    {
+      "name": "typescript",
+      "logo": "typescript.svg"
+    }
+  ],
+  "frameworks": [
+    {
+      "name": "angular",
+      "logo": "angular.svg"
+    },
+    {
+      "name": "react",
+      "logo": "react.svg"
+    }
+  ],
+  "libraries": [
+    {
+      "name": "jquery",
+      "logo": "jquery.svg"
+    },
+    {
+      "name": "lodash",
+      "logo": "lodash.svg"
+    }
+  ],
+  "tools": [
+    {
+      "name": "webpack",
+      "logo": "webpack.svg"
+    },
+    {
+      "name": "gulp",
+      "logo": "gulp.svg"
+    }
+  ]
+}
+

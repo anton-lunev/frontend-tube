@@ -7,8 +7,40 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 5em;
+      height: 5em;
+    }
+
+    .loader {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      font-size: 10px;
+      border: .5em solid rgba(255, 255, 255, 0.2);
+      border-left-color: #404952;
+      transform: translateZ(0);
+      animation: load8 .7s infinite linear;
+    }
+
+    @keyframes load8 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+<app-root>
+  <div class="loader"></div>
+</app-root>
 </body>
 </html>
