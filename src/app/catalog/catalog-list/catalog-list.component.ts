@@ -21,6 +21,6 @@ export class CatalogListComponent implements OnInit {
   }
 
   getLogoPath(fileName: string) {
-    return `/assets/images/${fileName}`;
+    return `assets/images/${fileName}`;
   }
 }

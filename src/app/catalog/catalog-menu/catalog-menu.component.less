@@ -39,8 +39,11 @@
     &:hover:after {
       left: 0;
     }
-    &--active:after, &:hover:after {
+    &--active:after {
       width: 100%;
     }
+  }
+  &.can-hover &__item:hover:after {
+    width: 100%;
   }
 }

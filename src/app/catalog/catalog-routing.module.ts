@@ -7,7 +7,7 @@ import { catalogTypes } from './catalog-list/catalog-list-types';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'catalog',
     component: CatalogComponent,
     children: [
       {path: '', redirectTo: 'languages', pathMatch: 'full'},

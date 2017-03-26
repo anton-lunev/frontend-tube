@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalog-menu.component.less']
 })
 export class CatalogMenuComponent implements OnInit {
-
-  constructor() { }
+  canHover = !matchMedia('(hover: none)').matches;
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

@@ -15,7 +15,8 @@ html, body {
 
 .stretch-content > *:not(router-outlet) {
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes fadeIn {

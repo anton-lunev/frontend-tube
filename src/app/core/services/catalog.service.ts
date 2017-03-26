@@ -13,7 +13,7 @@ export class CatalogService {
 
   getCatalog(type: string): Observable<Object[]> {
     if (!this.collection) {
-      return this.http.get('/assets/mocks/catalog.json')
+      return this.http.get('assets/mocks/catalog.json')
         .map((res: Response) => {
           this.collection = res.json();
           return this.collection[type];
