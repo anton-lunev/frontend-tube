@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class CatalogService {
   collection: Object;
+  channels: Object[];
 
   constructor(private http: Http) {
   }
@@ -20,5 +21,13 @@ export class CatalogService {
         });
     }
     return Observable.of(this.collection[type]);
+  }
+
+  getChannels(): Observable<any[]> {
+    if (!this.channels) {
+      return this.http.get('assets/mocks/channels.json')
+        .map((res: Response) => this.channels = res.json());
+    }
+    return Observable.of(this.channels);
   }
 }
