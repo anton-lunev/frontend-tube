@@ -1,7 +1,7 @@
 <div class="catalog-list">
   <div class="catalog-list__item catalog-item" *ngFor="let item of catalog">
     <div class="catalog-item__img">
-      <img [src]="getLogoPath(item.logo)" [alt]="item.name">
+      <load-image [src]="getLogoPath(item.logo)" [alt]="item.name"></load-image>
     </div>
     <div class="catalog-item__title">{{item.name}}</div>
   </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogService } from '../../core/services/catalog.service';
 import { YoutubeApiService } from '../../core/services/youtube-api.service';
+import { LoaderService } from '../../core/loader/loader.service';
 
 @Component({
   selector: 'app-channels-list',
@@ -12,10 +13,12 @@ export class ChannelsListComponent implements OnInit {
   channelsDetails: Object[] = [];
 
   constructor(private catalogService: CatalogService,
-              private youtubeApiService: YoutubeApiService) {
+              private youtubeApiService: YoutubeApiService,
+              private loaderService: LoaderService) {
   }
 
   ngOnInit() {
+    this.loaderService.runProgress();
     this.catalogService.getChannels()
       .subscribe(channels => {
         this.channels = channels;
@@ -25,6 +28,10 @@ export class ChannelsListComponent implements OnInit {
 
   getChannelsDetails(ids: string[]) {
     this.youtubeApiService.getChannels(ids)
-      .subscribe(details => this.channelsDetails = details);
+      .subscribe(details => {
+        this.channelsDetails = details;
+        // TODO make chane subscriptions
+        this.loaderService.stopProgress();
+      });
   }
 }

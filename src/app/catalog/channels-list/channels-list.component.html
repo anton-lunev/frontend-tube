@@ -1,7 +1,7 @@
 <div class="channels-list">
   <div class="channels-list__item channel-item" *ngFor="let item of channelsDetails">
     <div class="channel-item__img">
-      <img [src]="item.snippet.thumbnails.high.url" [alt]="item.snippet.title">
+      <load-image [src]="item.snippet.thumbnails.high.url" [alt]="item.snippet.title" [round]="true"></load-image>
     </div>
     <div class="channel-item__title">{{item.snippet.title}}</div>
   </div>
