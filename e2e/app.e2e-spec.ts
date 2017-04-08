@@ -1,6 +1,6 @@
 import { FrontendTubePage } from './app.po';
 
-describe('frontend-tube App', () => {
+xdescribe('frontend-tube App', () => {
   let page: FrontendTubePage;
 
   beforeEach(() => {

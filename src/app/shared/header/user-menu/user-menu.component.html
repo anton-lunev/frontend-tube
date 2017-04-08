@@ -1,3 +1,13 @@
-<p>
-  user-menu works!
-</p>
+<div class="auth">
+  <div *ngIf="user" class="auth__user user">
+    <div class="user__logo">
+      <load-image class="user__logo-img" [round]="true" [src]="user.auth.photoURL" [alt]="'logo'"></load-image>
+    </div>
+    <div class="user__name">
+      {{user.auth.displayName}}
+    </div>
+  </div>
+  <div *ngIf="!pending && !user" class="auth__login" (click)="login()">
+    Sign in
+  </div>
+</div>

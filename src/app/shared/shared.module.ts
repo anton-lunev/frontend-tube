@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderModule } from './header/header.module';
 import { IconsSpriteComponent } from './icons-sprite/icons-sprite.component';
 import { IconComponent } from './icon/icon.component';
-import { ImageComponent } from './image/image.component';
+import { ImageModule } from './image/image.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HeaderModule
+    HeaderModule,
+    ImageModule
   ],
-  declarations: [IconsSpriteComponent, IconComponent, ImageComponent],
-  exports: [HeaderModule, IconsSpriteComponent, IconComponent, ImageComponent]
+  declarations: [IconsSpriteComponent, IconComponent],
+  exports: [HeaderModule, ImageModule, IconsSpriteComponent, IconComponent]
 })
 export class SharedModule {
 }
