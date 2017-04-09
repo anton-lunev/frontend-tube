@@ -1,5 +1,6 @@
 {
-  "name": "Frontend Tube",
+  "name": "FrontendTube",
+  "short_name": "FrontendTube",
   "icons": [
     {
       "src": "assets/icons/android-chrome-192x192.png",
