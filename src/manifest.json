@@ -1,5 +1,6 @@
 {
-  "name": "Frontend Tube",
+  "name": "FrontendTube",
+  "short_name": "FrontendTube",
   "icons": [
     {
       "src": "assets/icons/android-chrome-192x192.png",
@@ -15,5 +16,5 @@
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "./?utm_source=web_app_manifest"
+  "start_url": "."
 }
