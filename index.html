@@ -42,5 +42,17 @@
 <app-root>
   <div class="spinner"></div>
 </app-root>
-<script type="text/javascript" src="inline.b70a61619d114d92da83.bundle.js"></script><script type="text/javascript" src="polyfills.2d45a4c73c85e24fe474.bundle.js"></script><script type="text/javascript" src="vendor.fe5f47a4625679db06fc.bundle.js"></script><script type="text/javascript" src="main.a5a4deeb3c12df667009.bundle.js"></script></body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
+</script>
+<script type="text/javascript" src="inline.3559b91ab7705f7f99ca.bundle.js"></script><script type="text/javascript" src="polyfills.2d45a4c73c85e24fe474.bundle.js"></script><script type="text/javascript" src="vendor.fe5f47a4625679db06fc.bundle.js"></script><script type="text/javascript" src="main.6245da496bb5e466dbee.bundle.js"></script></body>
 </html>
