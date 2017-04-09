@@ -9,8 +9,10 @@
     "serve:aot": "ng serve --prod --aot",
     "build": "ng build",
     "build:aot": "ng build --prod --aot",
+    "build:aot:sw": "ng build --prod --aot && npm run sw",
     "deploy": "gh-pages -d dist",
-    "deploy:prod": "npm run build:aot && npm run deploy",
+    "deploy:prod": "npm run build:aot:sw && npm run deploy",
+    "sw": "sw-precache --root=dist --verbose --config=sw-precache-config.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -48,6 +50,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.0",
+    "sw-precache": "^5.1.0",
     "ts-node": "~3.0.2",
     "tslint": "~4.5.0",
     "typescript": "~2.2.1"
