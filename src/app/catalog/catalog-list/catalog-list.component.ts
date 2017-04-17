@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CatalogService } from '../../core/services/catalog.service';
 import { LoaderService } from '../../core/loader/loader.service';
+import 'rxjs/add/operator/switchMap';
+import { CatalogItem } from '../../core/services/catalog';
 
 @Component({
   selector: 'app-catalog-list',
@@ -9,7 +11,7 @@ import { LoaderService } from '../../core/loader/loader.service';
   styleUrls: ['./catalog-list.component.less']
 })
 export class CatalogListComponent implements OnInit {
-  catalog: Object[] = [];
+  catalog: CatalogItem[];
 
   constructor(private route: ActivatedRoute,
               private catalogService: CatalogService,
@@ -18,7 +20,8 @@ export class CatalogListComponent implements OnInit {
 
   ngOnInit() {
     this.loaderService.runProgress();
-    this.catalogService.getCatalog(this.route.snapshot.data.type)
+    this.route.params
+      .switchMap(params => this.catalogService.getCatalog(params.type))
       .subscribe(catalog => {
         this.catalog = catalog;
         this.loaderService.stopProgress();

@@ -6,6 +6,7 @@ import { CatalogMenuComponent } from './catalog-menu/catalog-menu.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { ChannelsListComponent } from './channels-list/channels-list.component';
+import { VideoListComponent } from './video-list/video-list.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ChannelsListComponent } from './channels-list/channels-list.component';
     CatalogComponent,
     CatalogMenuComponent,
     CatalogListComponent,
-    ChannelsListComponent
+    ChannelsListComponent,
+    VideoListComponent
   ],
   exports: [
     CatalogComponent

@@ -11,9 +11,9 @@
   width: 100%;
   padding: 20px 25px;
   overflow-y: auto;
-  animation: fadeSlideIn .5s 1;
 
   &__item {
+    animation: fadeSlideIn .5s 1;
     width: 145px;
     margin: 20px;
   }
@@ -24,6 +24,13 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
+  cursor: pointer;
+  transition: transform .15s;
+  outline: none;
+
+  &:hover, &:active, &:focus {
+    transform: scale(.95);
+  }
 
   &__img {
     width: 100%;

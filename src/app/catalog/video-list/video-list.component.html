@@ -1,0 +1,24 @@
+<div class="video-list-page">
+  <div class="video-list-page__toolbar">
+    <h1 class="video-list-page__title">{{catalogId}}</h1>
+    <div class="video-list-page__filter filter">
+      Filter
+    </div>
+  </div>
+  <div class="video-list">
+    <div class="video-list__item video-item" *ngFor="let item of playlists">
+      <div class="video-item__img-wrapper">
+        <load-image class="video-item__img" [src]="item.snippet.thumbnails.medium.url"
+                    [alt]="item.snippet.title" [fit]="'cover'">
+        </load-image>
+        <load-image class="video-item__channel" [src]="getChannelLogo(item.snippet.channelId)"
+                    [alt]="item.snippet.title" [round]="true">
+        </load-image>
+      </div>
+      <div class="video-item__description">
+        <div class="video-item__title">{{item.snippet.title}}</div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 :host {
   display: flex;
   height: 100%;
+  overflow-x: auto;
 }
 
 .c-menu {
@@ -19,8 +20,9 @@
     will-change: opacity;
     opacity: .75;
     transition: opacity .2s;
+    outline: none;
 
-    &--active, &:hover {
+    &--active, &:hover, &:focus {
       opacity: 1;
     }
 
@@ -36,10 +38,10 @@
       will-change: width, left;
       transition: width .4s;
     }
-    &:hover:after {
+    &:hover:after, &:focus:after {
       left: 0;
     }
-    &--active:after {
+    &--active:after, &:focus:after {
       width: 100%;
     }
   }

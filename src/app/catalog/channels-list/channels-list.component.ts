@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogService } from '../../core/services/catalog.service';
 import { YoutubeApiService } from '../../core/services/youtube-api.service';
 import { LoaderService } from '../../core/loader/loader.service';
+import { YouTubeChannel, YouTubeSubscription } from '../../core/services/youtube-api';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-channels-list',
@@ -9,8 +11,7 @@ import { LoaderService } from '../../core/loader/loader.service';
   styleUrls: ['./channels-list.component.less']
 })
 export class ChannelsListComponent implements OnInit {
-  channels: Object[] = [];
-  channelsDetails: Object[] = [];
+  channelsDetails: YouTubeSubscription[] = [];
 
   constructor(private catalogService: CatalogService,
               private youtubeApiService: YoutubeApiService,
@@ -19,18 +20,9 @@ export class ChannelsListComponent implements OnInit {
 
   ngOnInit() {
     this.loaderService.runProgress();
-    this.catalogService.getChannels()
-      .subscribe(channels => {
-        this.channels = channels;
-        this.getChannelsDetails(channels.map(ch => ch.id));
-      });
-  }
-
-  getChannelsDetails(ids: string[]) {
-    this.youtubeApiService.getChannels(ids)
+    this.youtubeApiService.getChannels()
       .subscribe(details => {
         this.channelsDetails = details;
-        // TODO make chane subscriptions
         this.loaderService.stopProgress();
       });
   }

@@ -1,5 +1,6 @@
 <div class="catalog-list">
-  <div class="catalog-list__item catalog-item" *ngFor="let item of catalog">
+  <div class="catalog-list__item catalog-item" *ngFor="let item of catalog"
+       [routerLink]="['./', item.name]">
     <div class="catalog-item__img">
       <load-image [src]="getLogoPath(item.logo)" [alt]="item.name"></load-image>
     </div>
