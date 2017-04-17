@@ -1,40 +1,66 @@
 {
   "languages": [
     {
+      "id": "javascript",
       "name": "javascript",
-      "logo": "javascript.svg"
+      "logo": "javascript.svg",
+      "collection": [
+        {
+          "id": "PLoYCgNOIyGABs-wDaaxChu82q_xQgUb4f",
+          "lang": "en"
+        },
+        {
+          "id": "PLVHlCYNvnqYouIVj3IgK3RmzpnWMaoqkw",
+          "lang": "en"
+        },
+        {
+          "id": "PL363QX7S8MfSxcHzvkNEqMYbOyhLeWwem",
+          "lang": "ru"
+        },
+        {
+          "id": "PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q",
+          "lang": "ru"
+        }
+      ]
     },
     {
+      "id": "typescript",
       "name": "typescript",
       "logo": "typescript.svg"
     }
   ],
   "frameworks": [
     {
+      "id": "angular",
       "name": "angular",
       "logo": "angular.svg"
     },
     {
+      "id": "react",
       "name": "react",
       "logo": "react.svg"
     }
   ],
   "libraries": [
     {
+      "id": "jquery",
       "name": "jquery",
       "logo": "jquery.svg"
     },
     {
+      "id": "lodash",
       "name": "lodash",
       "logo": "lodash.svg"
     }
   ],
   "tools": [
     {
+      "id": "webpack",
       "name": "webpack",
       "logo": "webpack.svg"
     },
     {
+      "id": "gulp",
       "name": "gulp",
       "logo": "gulp.svg"
     }
