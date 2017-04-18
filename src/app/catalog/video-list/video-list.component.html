@@ -8,9 +8,21 @@
   <div class="video-list">
     <div class="video-list__item video-item" *ngFor="let item of playlists">
       <div class="video-item__img-wrapper">
-        <load-image class="video-item__img" [src]="item.snippet.thumbnails.medium.url"
-                    [alt]="item.snippet.title" [fit]="'cover'">
-        </load-image>
+        <div class="video-item__img video-item__img--back-1">
+          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title"
+                      [fit]="'cover'" [delay]="600">
+          </load-image>
+        </div>
+        <div class="video-item__img video-item__img--back-2">
+          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title"
+                      [fit]="'cover'" [delay]="300">
+          </load-image>
+        </div>
+        <div class="video-item__img">
+          <load-image [src]="item.snippet.thumbnails.medium.url"
+                      [alt]="item.snippet.title" [fit]="'cover'">
+          </load-image>
+        </div>
         <load-image class="video-item__channel" [src]="getChannelLogo(item.snippet.channelId)"
                     [alt]="item.snippet.title" [round]="true">
         </load-image>

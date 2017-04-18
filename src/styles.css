@@ -6,7 +6,7 @@ html, body {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
-  color: #404952;
+  color: var(--main-dark);
   touch-action: manipulation;
 }
 
