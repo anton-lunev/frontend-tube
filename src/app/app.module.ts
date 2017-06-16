@@ -14,6 +14,7 @@ import { HistoryComponent } from './history/history.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CatalogModule } from './catalog/catalog.module';
 import { CoreModule } from './core/core.module';
+import { WatchModule } from './watch/watch.module';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDon0oS97ueY40GbgplI97GSojhXGIT8gw',
@@ -30,7 +31,7 @@ export const firebaseConfig = {
     SidebarComponent,
     BookmarksComponent,
     HistoryComponent,
-    SettingsComponent
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ export const firebaseConfig = {
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    CatalogModule
+    CatalogModule,
+    WatchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

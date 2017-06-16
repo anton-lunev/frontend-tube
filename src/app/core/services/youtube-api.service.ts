@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptionsArgs, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
-import { YouTubeChannel, YouTubeList, YouTubePlaylist, YouTubeSubscription } from './youtube-api';
+import { YouTubeChannel, YouTubeList, YouTubePlaylist, YouTubePlaylistItem, YouTubeSubscription } from './youtube-api';
 
 @Injectable()
 export class YoutubeApiService {
@@ -13,9 +13,8 @@ export class YoutubeApiService {
   constructor(private http: Http) {
   }
 
-  getChannelsById(ids: String[]): Observable<YouTubeChannel[]> {
-    const params = this.getDefaultParams();
-    params.set('id', ids.join(','));
+  getChannelsById(ids: string[]): Observable<YouTubeChannel[]> {
+    const params = this.getParams({id: ids.join(',')});
 
     return this.http
       .get(`${this.apiUrl}/channels`, {search: params})
@@ -23,10 +22,11 @@ export class YoutubeApiService {
   }
 
   getChannels(): Observable<YouTubeSubscription[]> {
-    const params = this.getDefaultParams();
-    params.set('channelId', 'UCgLbP-z8qyzuAlgY-tZdS6Q');
-    params.set('maxResults', '50');
-    params.set('part', 'snippet,contentDetails');
+    const params = this.getParams({
+      part: 'snippet,contentDetails',
+      channelId: 'UCgLbP-z8qyzuAlgY-tZdS6Q',
+      maxResults: '50',
+    });
 
     if (this.channels) {
       return Observable.of(this.channels.items);
@@ -40,20 +40,33 @@ export class YoutubeApiService {
       });
   }
 
-  getPlaylists(ids: String[]): Observable<YouTubePlaylist[]> {
-    const params = this.getDefaultParams();
-    params.set('part', 'snippet,contentDetails');
-    params.set('id', ids.join(','));
+  getPlaylists(ids: string[]): Observable<YouTubePlaylist[]> {
+    const params = this.getParams({part: 'snippet,contentDetails', id: ids.join(',')});
 
     return this.http
       .get(`${this.apiUrl}/playlists`, {search: params})
       .map(response => response.json().items);
   }
 
-  private getDefaultParams(): URLSearchParams {
+  getPlaylist(id: string): Observable<YouTubePlaylistItem[]> {
+    const params = this.getParams({'playlistId': id});
+
+    return this.http
+      .get(`${this.apiUrl}/playlistItems`, {search: params})
+      .map(response => response.json().items);
+  }
+
+  private getParams(newParams?: Object): URLSearchParams {
     const params = new URLSearchParams();
     params.set('key', this.key);
     params.set('part', 'snippet');
+
+    for (const prop in newParams) {
+      if (newParams.hasOwnProperty(prop)) {
+        params.set(prop, newParams[prop]);
+      }
+    }
+
     return params;
   }
 }

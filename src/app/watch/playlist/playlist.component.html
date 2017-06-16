@@ -1,0 +1,8 @@
+<div>
+  <iframe *ngIf="videoUrl" [src]="videoUrl"
+          class="video-frame" frameborder="0" allowfullscreen>
+  </iframe>
+  <div *ngFor="let item of playlistItems">
+    {{item.snippet.title}}
+  </div>
+</div>

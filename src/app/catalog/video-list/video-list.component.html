@@ -6,16 +6,15 @@
     </div>
   </div>
   <div class="video-list">
-    <div class="video-list__item video-item" *ngFor="let item of playlists">
+    <div class="video-list__item video-item" *ngFor="let item of playlists"
+         [routerLink]="['/watch/playlist', item.id]">
       <div class="video-item__img-wrapper">
-        <div class="video-item__img video-item__img--back-1">
-          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title"
-                      [fit]="'cover'" [delay]="600">
+        <div class="video-item__img video-item__img--back video-item__img--back-1">
+          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title" [fit]="'cover'">
           </load-image>
         </div>
-        <div class="video-item__img video-item__img--back-2">
-          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title"
-                      [fit]="'cover'" [delay]="300">
+        <div class="video-item__img video-item__img--back video-item__img--back-2">
+          <load-image [src]="item.snippet.thumbnails.medium.url" [alt]="item.snippet.title" [fit]="'cover'">
           </load-image>
         </div>
         <div class="video-item__img">
@@ -29,7 +28,6 @@
       </div>
       <div class="video-item__description">
         <div class="video-item__title">{{item.snippet.title}}</div>
-
       </div>
     </div>
   </div>
