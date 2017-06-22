@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["assets/images/angular.svg","21dc0534cc7446b72f4cb586c2cb39f3"],["assets/images/gulp.svg","89d2ed3491841d56eead73b13bd82722"],["assets/images/javascript.svg","9b2c34bc8b77cf0f0d9739efeb9c1f63"],["assets/images/jquery.svg","39d5533a81ead8a0c1dabf29f02573b9"],["assets/images/lodash.svg","6938dd4e393247779f7804f80125c200"],["assets/images/react.svg","7297fb8fe64ab3ae3be751a982be9cf5"],["assets/images/typescript.svg","2fb6b2a69979d4f952d5e27157b2bc3b"],["assets/images/webpack.svg","df7c9fb91289943e1118cbec6b1c7b0b"],["assets/mocks/catalog.json","b3bb5838ebde20e011b93410f43adc1d"],["assets/mocks/channels.json","8a45b196b65125d66cf45dc9f45ef4d0"],["index.html","eea2398f35aecf33c5e1ab25a0842a35"],["inline.43ea061b575d539ca3a7.bundle.js","d1401a4f63f6a62707dc931aed58a397"],["main.26b244a07c8282aa2b78.bundle.js","81de252aa2185fd6849bf03154fcdc67"],["polyfills.2d45a4c73c85e24fe474.bundle.js","93b9a1ce5f6951f5115db281569105ca"],["styles.225fd2fb3eda178bba95.bundle.css","225fd2fb3eda178bba95f8a84ffe0a6f"],["vendor.726de4021b411c1939af.bundle.js","bec358f633d2bcdbd318add0b8e0b0b8"]];
+var precacheConfig = [["assets/images/angular.svg","21dc0534cc7446b72f4cb586c2cb39f3"],["assets/images/gulp.svg","89d2ed3491841d56eead73b13bd82722"],["assets/images/javascript.svg","9b2c34bc8b77cf0f0d9739efeb9c1f63"],["assets/images/jquery.svg","39d5533a81ead8a0c1dabf29f02573b9"],["assets/images/lodash.svg","6938dd4e393247779f7804f80125c200"],["assets/images/react.svg","7297fb8fe64ab3ae3be751a982be9cf5"],["assets/images/typescript.svg","2fb6b2a69979d4f952d5e27157b2bc3b"],["assets/images/webpack.svg","df7c9fb91289943e1118cbec6b1c7b0b"],["assets/mocks/catalog.json","b3bb5838ebde20e011b93410f43adc1d"],["assets/mocks/channels.json","8a45b196b65125d66cf45dc9f45ef4d0"],["index.html","92484f1def9975913e3b4f67a4a05538"],["inline.2eb5e64457d061accbae.bundle.js","74e2137b094c0209a7aba766fd299ab7"],["main.7ada58f993b13a5c6e64.bundle.js","c25a742b3fa1d258fc779849d30b404c"],["polyfills.748870f8a7b58ee6854c.bundle.js","872d944e548d9de7ccd96f8e22e175f0"],["styles.225fd2fb3eda178bba95.bundle.css","225fd2fb3eda178bba95f8a84ffe0a6f"],["vendor.d5a1d764c1c1dde5369c.bundle.js","1f812fed9e22cd022be4512712047651"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -107,6 +107,8 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
 var stripIgnoredUrlParameters = function (originalUrl,
     ignoreUrlParametersMatching) {
     var url = new URL(originalUrl);
+    // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290
+    url.hash = '';
 
     url.search = url.search.slice(1) // Exclude initial '?'
       .split('&') // Split into an array of 'key=value' strings
@@ -212,8 +214,8 @@ self.addEventListener('fetch', function(event) {
     // handlers a chance to handle the request if need be.
     var shouldRespond;
 
-    // First, remove all the ignored parameter and see if we have that URL
-    // in our cache. If so, great! shouldRespond will be true.
+    // First, remove all the ignored parameters and hash fragment, and see if we
+    // have that URL in our cache. If so, great! shouldRespond will be true.
     var url = stripIgnoredUrlParameters(event.request.url, ignoreUrlParametersMatching);
     shouldRespond = urlsToCacheKeys.has(url);
 
