@@ -1,10 +1,9 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {SidebarComponent} from './sidebar/sidebar.component';
-import {HeaderComponent} from './shared/header/header.component';
-import {UserMenuComponent} from './shared/header/user-menu/user-menu.component';
-import {SharedModule} from './shared/shared.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SharedModule } from './shared/shared.module';
 
 xdescribe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,7 +12,6 @@ xdescribe('AppComponent', () => {
         AppComponent,
         SidebarComponent,
         HeaderComponent,
-        UserMenuComponent
       ],
       imports: [
         SharedModule

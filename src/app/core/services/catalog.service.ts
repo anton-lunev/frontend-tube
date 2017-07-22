@@ -3,29 +3,28 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/publishReplay';
 import { CatalogItem, Catalogs } from './catalog';
 
 @Injectable()
 export class CatalogService {
   baseUrl = 'assets/mocks';
-  collection: Catalogs;
+  collection$: Observable<Catalogs>;
   channels: Object[];
 
   constructor(private http: Http) {
   }
 
   getCatalog(type: string): Observable<CatalogItem[]> {
-    if (!this.collection) {
-      return this.http.get(`${this.baseUrl}/catalog.json`)
-        .map((res: Response) => {
-          this.collection = res.json();
-          return this.collection[type];
-        });
+    if (!this.collection$) {
+      this.collection$ = this.http.get(`${this.baseUrl}/catalog.json`)
+        .map(res => res.json())
+        .publishReplay(1).refCount();
     }
-    return Observable.of(this.collection[type]);
+    return this.collection$.map(collection => collection[type]);
   }
 
-  getSubCatalog(type: string, id: String): Observable<CatalogItem> {
+  getSubCatalog(type: string, id: string): Observable<CatalogItem> {
     return this.getCatalog(type)
       .map(collection => collection.find(item => item.id === id));
   }

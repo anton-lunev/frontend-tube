@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -16,15 +15,6 @@ import { CatalogModule } from './catalog/catalog.module';
 import { CoreModule } from './core/core.module';
 import { WatchModule } from './watch/watch.module';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDon0oS97ueY40GbgplI97GSojhXGIT8gw',
-  authDomain: 'frontend-tube.firebaseapp.com',
-  databaseURL: 'https://frontend-tube.firebaseio.com',
-  projectId: 'frontend-tube',
-  storageBucket: 'frontend-tube.appspot.com',
-  messagingSenderId: '502261086087'
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +27,6 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig),
     CoreModule,
     SharedModule,
     AppRoutingModule,

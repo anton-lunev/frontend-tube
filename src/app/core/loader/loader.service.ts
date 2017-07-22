@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoaderService {
-  private subject = new Subject();
-  private channel = this.subject.asObservable();
+  private subject: Subject<boolean> = new Subject();
+  private channel: Observable<boolean> = this.subject.asObservable();
 
   constructor() {
   }
